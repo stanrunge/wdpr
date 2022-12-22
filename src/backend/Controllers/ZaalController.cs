@@ -1,4 +1,5 @@
 using backend.Data;
+using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers;
@@ -12,5 +13,11 @@ public class ZaalController
     public ZaalController(WdprContext context)
     {
         _context = context;
+    }
+    
+    [HttpGet]
+    public IEnumerable<Zaal> Get()
+    {
+        return _context.Zalen;
     }
 }
