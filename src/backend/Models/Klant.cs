@@ -1,6 +1,5 @@
 namespace backend.Models;
 
-public class Klant
+public class Klant : Account
 {
-    public int Id { get; set; }
 }

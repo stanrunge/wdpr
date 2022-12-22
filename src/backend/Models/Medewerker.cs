@@ -1,6 +1,6 @@
 namespace backend.Models;
 
-public class Medewerker : TicketKoper
+public class Medewerker : Account
 {
     public int Id { get; set; }
     public string Functie { get; set; }

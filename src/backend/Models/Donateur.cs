@@ -1,6 +1,5 @@
 namespace backend.Models;
 
-public class Donateur : TicketKoper
+public class Donateur : Account
 {
-    public int Id { get; set; }
 }
