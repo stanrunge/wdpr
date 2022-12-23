@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Landing from './pages/Landing/Landing';
 import Error from './pages/Error/Error';
 import Informatie from './pages/Informatie/Informatie';
+import Uitvoering from './pages/Uitvoering/Uitvoering';
 
 const router = createBrowserRouter([{
     path: "/",
@@ -13,6 +14,10 @@ const router = createBrowserRouter([{
   {
     path: "informatie",
     element: <Informatie />,
+  },
+  {
+    path: "uitvoering/:id",
+    element: <Uitvoering />,
   }
 ]);
 
