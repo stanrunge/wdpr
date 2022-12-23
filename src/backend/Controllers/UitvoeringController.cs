@@ -16,8 +16,14 @@ public class UitvoeringController
     }
     
     [HttpGet]
-    public IEnumerable<Uitvoering> Get()
+    public IEnumerable<Uitvoering?> Get()
     {
         return _context.Uitvoeringen;
+    }
+    
+    [HttpGet("{id}")]
+    public async Task<Uitvoering?> Get(int id)
+    {
+        return await _context.Uitvoeringen.FindAsync(id);
     }
 }
