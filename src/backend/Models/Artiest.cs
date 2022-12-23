@@ -1,6 +1,6 @@
 namespace backend.Models;
 
-public class Artiest
+public class Artiest : Account
 {
-    public int Id { get; set; }
+    // public int Id { get; set; }
 }

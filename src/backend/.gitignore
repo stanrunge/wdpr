@@ -351,3 +351,5 @@ MigrationBackup/
 
 # VS Code files
 .vscode/
+appsettings.json
+InitData/
