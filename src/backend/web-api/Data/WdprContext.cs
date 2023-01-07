@@ -1,9 +1,9 @@
-using backend.Models;
+using webapi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
-namespace backend.Data;
+namespace webapi.Data;
 
 public class WdprContext : IdentityDbContext<Account, IdentityRole, string>
 {

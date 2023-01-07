@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace backend.Models;
+namespace webapi.Models;
 
 public class Account : IdentityUser
 {

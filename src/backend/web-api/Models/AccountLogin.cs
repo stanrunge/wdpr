@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
+namespace webapi.Models;
+
 public class AccountLogin
 {
     [Required(ErrorMessage = "Username is required")]

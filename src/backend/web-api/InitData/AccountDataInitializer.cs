@@ -1,6 +1,8 @@
 using System.Security.Cryptography;
-using backend.Models;
+using webapi.Models;
 using Microsoft.AspNetCore.Identity;
+
+namespace webapi;
 
 public static class AccountDataInitializer
 {

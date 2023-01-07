@@ -1,4 +1,4 @@
-namespace backend.Models;
+namespace webapi.Models;
 
 public class Donatie
 {
