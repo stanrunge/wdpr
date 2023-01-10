@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import Layout from "../components/Layout";
 
 function Uitvoering() {
     const [uitvoeringen, setUitvoeringen] = useState([]);
@@ -18,12 +19,12 @@ function Uitvoering() {
     ));
 
     return (
-        <>
+        <Layout>
             <h2>Uitvoeringen:</h2>
             <ul>
                 {items}
             </ul>
-        </>
+        </Layout>
     );
 }
 

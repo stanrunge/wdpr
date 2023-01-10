@@ -1,8 +1,6 @@
-function Zaal() {
+export default function Footer() {
     return (
         <>
         </>
     );
 }
-
-export default Zaal;

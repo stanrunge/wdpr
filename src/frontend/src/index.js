@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Landing from './pages/Landing/Landing';
-import Error from './pages/Error/Error';
-import Informatie from './pages/Informatie/Informatie';
-import Uitvoering from './pages/Uitvoering/Uitvoering';
+import Landing from './pages/Landing';
+import Error from './pages/Error';
+import Informatie from './pages/Informatie';
+import Uitvoering from './pages/Uitvoering';
+import Kalender from "./pages/Kalender";
+import Account from "./pages/Account";
+import './styles.css';
 
 const router = createBrowserRouter([{
     path: "/",
@@ -18,6 +21,14 @@ const router = createBrowserRouter([{
   {
     path: "uitvoering/:id",
     element: <Uitvoering />,
+  },
+  {
+    path: "kalender",
+    element: <Kalender />,
+  },
+  {
+    path: "account",
+    element: <Account />,
   }
 ]);
 
