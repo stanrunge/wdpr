@@ -1,8 +1,8 @@
-using System.Security.Cryptography;
 using webapi.Models;
+using webapi.Data;
 using Microsoft.AspNetCore.Identity;
 
-namespace webapi;
+namespace webapi.InitData;
 
 public static class AccountDataInitializer
 {
@@ -14,41 +14,50 @@ public static class AccountDataInitializer
 
     private static void SeedRoles(RoleManager<IdentityRole> roleManager)
     {
-        if (!roleManager.RoleExistsAsync("Admin").Result)
+        // IdentityRole role;
+        if (!roleManager.RoleExistsAsync(Roles.Admin).Result)
         {
             IdentityRole role = new IdentityRole();
-            role.Name = "Admin";
-            var roleResult = roleManager.CreateAsync(role).Result;
+            role.Name = Roles.Admin;
+            roleManager.CreateAsync(role).Wait();
         }
+        if (!roleManager.RoleExistsAsync(Roles.Medewerker).Result)
+        {
+            IdentityRole role = new IdentityRole();
+            role.Name = Roles.Medewerker;
+            roleManager.CreateAsync(role).Wait();
+        }
+        if (!roleManager.RoleExistsAsync(Roles.Directie).Result)
+        {
+            IdentityRole role = new IdentityRole();
+            role.Name = Roles.Directie;
+            roleManager.CreateAsync(role).Wait();
+        }
+        if (!roleManager.RoleExistsAsync(Roles.Donateur).Result)
+        {
+            IdentityRole role = new IdentityRole();
+            role.Name = Roles.Donateur;
+            roleManager.CreateAsync(role).Wait();
+        }
+
+
     }
 
     private static void SeedUsers(UserManager<Account> userManager)
     {
-        if (userManager.FindByNameAsync("MainAdmin").Result == null)
+        if (userManager.FindByNameAsync("testadmin@testmail.com").Result == null)
         {
-            Console.WriteLine(HashPassword("Pass123!"));
             Account a = new Account()
             {
-                UserName = "MainAdmin",
-                PasswordHash = HashPassword("Pass123!"),
-                Email = "admin@testmail.com",
+                UserName = "testadmin@testmail.com",
+                // Password = DataEditor.HashPassword("Pass123!")
             };
-            var result = userManager.CreateAsync(a).Result;
+            var result = userManager.CreateAsync(a, "Pass123!").Result;
             if (result.Succeeded)
             {
-                userManager.AddToRoleAsync(a, "Admin").Wait();
+                userManager.AddToRoleAsync(a, Roles.Admin).Wait();
             }
         }
     }
 
-    // Move somewhere else in future and call that instead of this
-    public static string HashPassword(string unHashedPassword)
-    {
-        using (SHA384 sha384Hash = SHA384.Create())
-        {
-            byte[] unHashedBytes = System.Text.Encoding.UTF8.GetBytes(unHashedPassword);
-            byte[] hashedBytes = sha384Hash.ComputeHash(unHashedBytes);
-            return BitConverter.ToString(hashedBytes).Replace("-", string.Empty);
-        }
-    }
 }

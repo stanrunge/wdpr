@@ -352,3 +352,5 @@ MigrationBackup/
 # VS Code files
 .vscode/
 src/backend/appsettings.json
+src/backend/web-api/appsettings.json
+src/backend/web-api/Migrations/
